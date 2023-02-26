@@ -1,0 +1,11 @@
+.header{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    border: 2px solid black;
+}
+
+h1{
+    grid-column: 2/3;
+    text-align: center;
+}
