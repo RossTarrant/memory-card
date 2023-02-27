@@ -18,7 +18,7 @@
 }
 
 .card:hover{
-    border: 3px solid red;
+    border: 3px solid green;
 }
 
 .card img{

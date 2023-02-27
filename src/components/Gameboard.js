@@ -31,7 +31,7 @@ export default function Gameboard({increaseScore, resetScore}){
         const shuffledCards = shuffleCards(cards);
         const formattedCards = shuffledCards.map( card => 
             <div className="card" key={card.id} onClick={ () => onCardClick(card.id)}>
-                <h3>{card.text}</h3>
+                <h2>{card.text}</h2>
                 <img alt="" src={card.url}/>
             </div>
         )
