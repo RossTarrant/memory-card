@@ -1,10 +1,23 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { cards } from "./data"
 import '../styles/Gameboard.css'
 
-export default function Gameboard(props){
+export default function Gameboard({increaseScore, resetScore}){
 
+    const [selectedCards, setSelectedCards] = useState([]);
 
+    const onCardClick = (id) => {
+        if(selectedCards.includes(id)){
+            resetScore();
+            setSelectedCards([]);
+        }
+        else{
+            increaseScore();
+            let x = selectedCards.concat(id);
+            setSelectedCards(x);
+        }
+
+    }
 
     const shuffleCards = (cards) => {
         for (let i = cards.length - 1; i > 0; i--) {
@@ -17,9 +30,9 @@ export default function Gameboard(props){
     const getCards = () => {
         const shuffledCards = shuffleCards(cards);
         const formattedCards = shuffledCards.map( card => 
-            <div className="card" key={card.id}>
+            <div className="card" key={card.id} onClick={ () => onCardClick(card.id)}>
                 <h3>{card.text}</h3>
-                <img alt="" src="https://media.pitchfork.com/photos/63ee3b25a6c6ccc33ce86c05/1:1/w_600/Skrillex-Quest-for-Fire.jpg"/>
+                <img alt="" src={card.url}/>
             </div>
         )
         return formattedCards;

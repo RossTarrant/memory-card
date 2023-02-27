@@ -8,10 +8,28 @@ function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
+  useEffect( () => {
+    compareBestScore();
+  }, [score])
+
+  const increaseScore = () => {
+    setScore(score+1);
+  }
+
+  const resetScore = () => {
+    setScore(0);
+  }
+
+  const compareBestScore = () => {
+    if (score > bestScore){
+      setBestScore(score);
+    }
+  }
+
   return (
     <div className="App">
       <Header score={score} bestScore={bestScore}/>
-      <Gameboard />
+      <Gameboard increaseScore={increaseScore} resetScore={resetScore}/>
     </div>
   );
 }
