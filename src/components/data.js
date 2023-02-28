@@ -2,7 +2,7 @@ export const cards = [
     {
         id: 0,
         text: 'Ferrari',
-        url: 'https://cdn-icons-png.flaticon.com/512/2111/2111463.png'
+        url: 'https://i2-prod.mirror.co.uk/incoming/article29212564.ece/ALTERNATES/s1200c/1_SF_2023_Front3_4-1.jpg'
     }, 
     {
         id: 1,
